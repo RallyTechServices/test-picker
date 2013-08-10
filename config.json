@@ -1,0 +1,13 @@
+{
+    "name": "Test Picker",
+    "className": "CustomApp",
+    "server": "https://rally1.rallydev.com",
+    "sdk": "2.0rc1",
+    "javascript": [
+        "ts-overrides.js",
+        "App.js"
+    ],
+    "css": [
+        "app.css"
+    ]
+}

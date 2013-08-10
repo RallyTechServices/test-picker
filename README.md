@@ -1,4 +1,4 @@
 test-picker
 ===========
 
-A slightly better chooser for test-cases
+A way to choose test cases to put into test sets.
