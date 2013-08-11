@@ -115,7 +115,6 @@ Ext.define('CustomApp', {
         return display_value;
     },
     _renderObjectByName: function(value,metaData,record,rowIndex,colIndex,store,view){
-        console.log(value,metaData,record);
         var display_value = "";
         if ( value ) {
             display_value = value._type;
@@ -157,11 +156,13 @@ Ext.define('CustomApp', {
                 {displayName: 'ID', attributeName:"FormattedID"},
                 {displayName: 'Name', attributeName:"Name"},
                 {displayName: 'TestFolder', attributeName:"TestFolder.Name"},
-                {displayName: 'Tags', attributeName:"Tags.Name"}
+                {displayName: 'Tags', attributeName:"Tags.Name"},
+                {displayName: 'Type',attributeName:"Type"}
             ],
             columns: [
                 {text:'id',dataIndex:'FormattedID'},
                 {text:'Name',dataIndex:'Name',flex: 1},
+                {text:'Type',dataIndex:'Type'},
                 {text:'Folder',dataIndex:'TestFolder',renderer:me._renderObjectByName}
             ],
             storeConfig: {

@@ -3,7 +3,7 @@
 <head>
     <title>Test Picker</title>
 
-    <script type="text/javascript" src="/apps/2.0rc1/sdk.js"></script>
+    <script type="text/javascript" src="/apps/2.0rc1/sdk-debug.js"></script>
 
     <script type="text/javascript">
         Rally.onReady(function() {
@@ -17,7 +17,6 @@
                     var filter;
                     
                     if (!Ext.isEmpty(terms)) {
-                        console.log( filterBy, "contains", terms );
                         filter = Ext.create('Rally.data.QueryFilter', {
                             property: filterBy,
                             value: terms,
@@ -61,7 +60,8 @@
                         return Rally.data.Proxy.getGlobalWorkspace();
                     }
                 }
-            });            
+            });
+            
             
             Ext.define('CustomApp', {
                 extend: 'Rally.app.App',
@@ -178,7 +178,6 @@
                     return display_value;
                 },
                 _renderObjectByName: function(value,metaData,record,rowIndex,colIndex,store,view){
-                    console.log(value,metaData,record);
                     var display_value = "";
                     if ( value ) {
                         display_value = value._type;
@@ -220,11 +219,13 @@
                             {displayName: 'ID', attributeName:"FormattedID"},
                             {displayName: 'Name', attributeName:"Name"},
                             {displayName: 'TestFolder', attributeName:"TestFolder.Name"},
-                            {displayName: 'Tags', attributeName:"Tags.Name"}
+                            {displayName: 'Tags', attributeName:"Tags.Name"},
+                            {displayName: 'Type',attributeName:"Type"}
                         ],
                         columns: [
                             {text:'id',dataIndex:'FormattedID'},
                             {text:'Name',dataIndex:'Name',flex: 1},
+                            {text:'Type',dataIndex:'Type'},
                             {text:'Folder',dataIndex:'TestFolder',renderer:me._renderObjectByName}
                         ],
                         storeConfig: {

@@ -8,7 +8,6 @@ Ext.override(Rally.ui.dialog.ChooserDialog,{
         var filter;
         
         if (!Ext.isEmpty(terms)) {
-            console.log( filterBy, "contains", terms );
             filter = Ext.create('Rally.data.QueryFilter', {
                 property: filterBy,
                 value: terms,
