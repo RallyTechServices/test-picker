@@ -213,7 +213,6 @@
                     me.dialog = Ext.create('Rally.ui.dialog.ChooserDialog',{
                         artifactTypes: ['testcase'],
                         autoShow: true,
-                        height: 400,
                         title: 'Choose Test Cases',
                         filterableFields: [
                             {displayName: 'ID', attributeName:"FormattedID"},
@@ -244,7 +243,7 @@
                                     listeners: {
                                         load: function(store,records){
                                             var ts = records[0];
-                                            me._log(items);
+                                            me._log(["Selected items:",items]);
                                             var tc_store = ts.getCollection('TestCases');
                                             
                                             me._log(["Got store:",tc_store]);
@@ -252,7 +251,7 @@
                                             
                                             tc_store.proxy.setModel("TestCase",true);
                                             //                              
-                                            me._log(["Added item"]);
+                                            me._log("Added items.");
                                             tc_store.sync({
             //                                    callback: function(){
             //                                        me._log("inside callback");
@@ -270,7 +269,7 @@
                                 });
                                 
                             }
-                        },
+                        }/*,
                         buttons: [{
                                 xtype: 'rallybutton',
                                 text: "Done",
@@ -289,7 +288,7 @@
                                 text: 'Cancel',
                                 handler: function() { me.dialog.close() },
                                 ui: 'link'
-                            }]
+                            }]*/
                     });
                 },
                 _log: function(msg) {

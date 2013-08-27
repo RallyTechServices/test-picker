@@ -150,7 +150,6 @@ Ext.define('CustomApp', {
         me.dialog = Ext.create('Rally.ui.dialog.ChooserDialog',{
             artifactTypes: ['testcase'],
             autoShow: true,
-            height: 400,
             title: 'Choose Test Cases',
             filterableFields: [
                 {displayName: 'ID', attributeName:"FormattedID"},
@@ -181,7 +180,7 @@ Ext.define('CustomApp', {
                         listeners: {
                             load: function(store,records){
                                 var ts = records[0];
-                                me._log(items);
+                                me._log(["Selected items:",items]);
                                 var tc_store = ts.getCollection('TestCases');
                                 
                                 me._log(["Got store:",tc_store]);
@@ -189,7 +188,7 @@ Ext.define('CustomApp', {
                                 
                                 tc_store.proxy.setModel("TestCase",true);
                                 //                              
-                                me._log(["Added item"]);
+                                me._log("Added items.");
                                 tc_store.sync({
 //                                    callback: function(){
 //                                        me._log("inside callback");
@@ -207,7 +206,7 @@ Ext.define('CustomApp', {
                     });
                     
                 }
-            },
+            }/*,
             buttons: [{
                     xtype: 'rallybutton',
                     text: "Done",
@@ -226,7 +225,7 @@ Ext.define('CustomApp', {
                     text: 'Cancel',
                     handler: function() { me.dialog.close() },
                     ui: 'link'
-                }]
+                }]*/
         });
     },
     _log: function(msg) {
