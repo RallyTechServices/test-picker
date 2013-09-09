@@ -155,7 +155,7 @@ Ext.define('CustomApp', {
                 {displayName: 'ID', attributeName:"FormattedID"},
                 {displayName: 'Name', attributeName:"Name"},
                 {displayName: 'TestFolder', attributeName:"TestFolder.Name"},
-                {displayName: 'Tags', attributeName:"Tags.Name"},
+                {displayName: 'Tags', attributeName:"Tags"},
                 {displayName: 'Type',attributeName:"Type"}
             ],
             columns: [
