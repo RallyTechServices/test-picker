@@ -149,8 +149,22 @@ Ext.define('CustomApp', {
         var me = this;
         me.dialog = Ext.create('Rally.ui.dialog.ChooserDialog',{
             artifactTypes: ['testcase'],
+            xtype: 'panel',
+            border: false,
             autoShow: true,
             title: 'Choose Test Cases',
+            items: {
+                xtype: 'panel',
+                border: false,
+                items: [
+                    {
+                        xtype: 'container',
+                        itemId: 'gridContainer',
+                        layout: 'fit',
+                        height: 250
+                    }
+                ]
+            },
             filterableFields: [
                 {displayName: 'ID', attributeName:"FormattedID"},
                 {displayName: 'Name', attributeName:"Name"},
@@ -204,28 +218,8 @@ Ext.define('CustomApp', {
                             }
                         }
                     });
-                    
                 }
-            }/*,
-            buttons: [{
-                    xtype: 'rallybutton',
-                    text: "Done",
-                    userAction: 'clicked done in dialog',
-                    handler: function() {
-                        var selectedRecords = me.dialog._getSelectedRecords();
-                        if (!me.dialog.multiple) {
-                            selectedRecords = selectedRecords[0];
-                        }
-                        me.dialog.fireEvent('artifactChosen', selectedRecords);
-                        me.dialog.close();
-                    }
-                },
-                {
-                    xtype: 'rallybutton',
-                    text: 'Cancel',
-                    handler: function() { me.dialog.close() },
-                    ui: 'link'
-                }]*/
+            }
         });
     },
     _log: function(msg) {
