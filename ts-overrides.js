@@ -1,13 +1,6 @@
 //
 Ext.override(Rally.ui.dialog.ChooserDialog,{
-    items: [
-        {
-            xtype: 'container',
-            itemId: 'gridContainer',
-            layout: 'fit',
-            height: 250
-        }
-    ],
+
     /**
      * @private
      */

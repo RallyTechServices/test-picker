@@ -9,14 +9,7 @@
         Rally.onReady(function() {
             //
             Ext.override(Rally.ui.dialog.ChooserDialog,{
-                items: [
-                    {
-                        xtype: 'container',
-                        itemId: 'gridContainer',
-                        layout: 'fit',
-                        height: 250
-                    }
-                ],
+            
                 /**
                  * @private
                  */
@@ -312,11 +305,21 @@
                 },
                 _launchTestCaseSearch:function(record){
                     var me = this;
+                    var height = isNaN(this.getHeight()) ? 500 : this.getHeight()-50;
+                    if ( height > 700 ) { height = 700; }
+                    
+                    var width = isNaN(this.getWidth()) ? 800: this.getWidth()-50;
+                    if ( width > 800 ) { width = 800; }
+                    
+                    this._log([width, height]);
+                    
                     me.dialog = Ext.create('Rally.ui.dialog.ChooserDialog',{
                         artifactTypes: ['testcase'],
                         xtype: 'panel',
                         border: false,
                         autoShow: true,
+                        height: height,
+                        width: width,
                         title: 'Choose Test Cases',
                         items: {
                             xtype: 'panel',
@@ -326,7 +329,8 @@
                                     xtype: 'container',
                                     itemId: 'gridContainer',
                                     layout: 'fit',
-                                    height: 250
+                                    height: height-100,
+                                    width: width-20
                                 }
                             ]
                         },
